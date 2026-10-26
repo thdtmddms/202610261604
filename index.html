@@ -22,7 +22,7 @@
             background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
         }
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        .tab-content.active { display: block; animation: fadeIn 0.25s ease-in-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
@@ -30,15 +30,16 @@
         .nav-card {
             transition: all 0.25s ease;
             border: 1px solid #e2e8f0;
+            user-select: none;
         }
         .nav-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(30, 58, 138, 0.08);
+            box-shadow: 0 10px 20px -5px rgba(30, 58, 138, 0.12);
         }
         .nav-card.active {
             border-color: #1d4ed8;
             background-color: #eff6ff;
-            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.12);
+            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
         }
         .nav-card.active .icon-box {
             background-color: #1d4ed8;
@@ -82,10 +83,10 @@
                 <span class="text-slate-600">|</span>
                 <span><i class="fa-solid fa-percent text-sky-400 mr-1"></i>주담대 평균 연 4.30%</span>
                 <span class="text-slate-600 hidden md:inline">|</span>
-                <button onclick="openTab(4)" class="hidden md:inline-block bg-blue-900/80 hover:bg-blue-800 text-sky-200 px-2.5 py-0.5 rounded border border-blue-700 transition">
+                <button type="button" onclick="openTab(4)" class="hidden md:inline-block bg-blue-900/80 hover:bg-blue-800 text-sky-200 px-2.5 py-0.5 rounded border border-blue-700 transition cursor-pointer">
                     <i class="fa-solid fa-book-open mr-1"></i>재무용어·비율 가이드
                 </button>
-                <button onclick="openTab(5)" class="bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 px-2.5 py-0.5 rounded border border-emerald-700 transition">
+                <button type="button" onclick="openTab(5)" class="bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 px-2.5 py-0.5 rounded border border-emerald-700 transition cursor-pointer">
                     <i class="fa-solid fa-landmark mr-1"></i>추천 금융정책·제도(STEP 06)
                 </button>
             </div>
@@ -111,18 +112,18 @@
             <!-- 우측: 직접 입력(초기화) 및 공모전 케이스 불러오기만 배치 -->
             <div class="flex flex-wrap items-center gap-2">
                 <span class="text-xs font-bold text-slate-400 mr-1 hidden sm:inline"><i class="fa-solid fa-sliders mr-1"></i>데이터 입력 모드:</span>
-                <button onclick="loadPreset('custom')" id="btn-preset-custom" class="preset-btn active text-xs bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold px-3.5 py-2 rounded-lg shadow-sm">
+                <button type="button" onclick="loadPreset('custom')" id="btn-preset-custom" class="preset-btn active text-xs bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold px-3.5 py-2 rounded-lg shadow-sm cursor-pointer">
                     <i class="fa-solid fa-pen-to-square mr-1.5"></i>직접 입력 모드 (초기화)
                 </button>
-                <button onclick="loadPreset('case2')" id="btn-preset-case2" class="preset-btn text-xs bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-bold px-3.5 py-2 rounded-lg shadow-sm">
+                <button type="button" onclick="loadPreset('case2')" id="btn-preset-case2" class="preset-btn text-xs bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 font-bold px-3.5 py-2 rounded-lg shadow-sm cursor-pointer">
                     <i class="fa-solid fa-star text-amber-500 mr-1.5"></i>[공모전 케이스] 30대 맞벌이 신혼부부
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- 3. 히어로 배너 & 6대 핵심 서비스 카드 네비게이션 (수정사항 3: STEP 06 추가) -->
-    <section class="bank-gradient text-white pt-8 pb-16 px-4 sm:px-6 relative overflow-hidden">
+    <!-- 3. 히어로 배너 & 6대 핵심 서비스 카드 네비게이션 -->
+    <section class="bank-gradient text-white pt-8 pb-16 px-4 sm:px-6 relative">
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
                 <div>
@@ -229,10 +230,10 @@
                     <p class="text-sm text-slate-500 mt-1">세분화된 가구 형태(또는 직접 입력 기준)와 월간 수입·지출, 자산·부채 현황을 바탕으로 재무건전성을 정밀 진단합니다.</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button onclick="openTab(5)" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold px-3.5 py-2.5 rounded-lg transition flex items-center">
+                    <button type="button" onclick="openTab(5)" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold px-3.5 py-2.5 rounded-lg transition flex items-center cursor-pointer">
                         <i class="fa-solid fa-landmark text-emerald-600 mr-1.5"></i>내 가구 맞춤 정책·제도 보기
                     </button>
-                    <button onclick="calculateHealth()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-lg shadow transition flex items-center text-sm">
+                    <button type="button" onclick="calculateHealth()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-lg shadow transition flex items-center text-sm cursor-pointer">
                         <i class="fa-solid fa-magnifying-glass-chart mr-2"></i>내 자산 진단하기
                     </button>
                 </div>
@@ -287,7 +288,7 @@
                         <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/80">
                             <div class="flex justify-between items-center mb-2.5">
                                 <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">현금흐름 (월간 수입·지출)</span>
-                                <button onclick="jumpToDict('cashflow')" class="text-[11px] text-blue-600 hover:underline"><i class="fa-regular fa-circle-question mr-0.5"></i>고정지출 vs 변동지출이란?</button>
+                                <button type="button" onclick="jumpToDict('cashflow')" class="text-[11px] text-blue-600 hover:underline cursor-pointer"><i class="fa-regular fa-circle-question mr-0.5"></i>고정지출 vs 변동지출이란?</button>
                             </div>
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
@@ -324,7 +325,7 @@
                         <div class="bg-slate-50 p-3.5 rounded-lg border border-slate-200/80">
                             <div class="flex justify-between items-center mb-2.5">
                                 <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">자산 · 부채 상태표 항목</span>
-                                <button onclick="jumpToDict('asset')" class="text-[11px] text-blue-600 hover:underline"><i class="fa-regular fa-circle-question mr-0.5"></i>유동성 자산·순자산이란?</button>
+                                <button type="button" onclick="jumpToDict('asset')" class="text-[11px] text-blue-600 hover:underline cursor-pointer"><i class="fa-regular fa-circle-question mr-0.5"></i>유동성 자산·순자산이란?</button>
                             </div>
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
@@ -338,107 +339,4 @@
                                     <label class="block text-xs font-semibold text-slate-600 mb-1">거주/실물 부동산 평가액</label>
                                     <div class="relative">
                                         <input type="number" id="t1-real-estate" value="22000" placeholder="전세보증금/자가" oninput="calculateHealth()" class="input-box w-full border border-slate-300 rounded-lg p-2 pr-10 text-right font-semibold text-slate-700 bg-white">
-                                        <span class="absolute right-3 top-2 text-xs text-slate-400">만원</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">유동성 자산 (현금/CMA)</label>
-                                    <div class="relative">
-                                        <input type="number" id="t1-liquid" value="1200" placeholder="입출금/파킹통장" oninput="calculateHealth()" class="input-box w-full border border-slate-300 rounded-lg p-2 pr-10 text-right font-semibold text-emerald-700 bg-white">
-                                        <span class="absolute right-3 top-2 text-xs text-slate-400">만원</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold text-slate-600 mb-1">총부채 잔액 (대출총액)</label>
-                                    <div class="relative">
-                                        <input type="number" id="t1-total-debt" value="12000" placeholder="주담대/신용대출" oninput="calculateHealth()" class="input-box w-full border border-slate-300 rounded-lg p-2 pr-10 text-right font-semibold text-rose-600 bg-white">
-                                        <span class="absolute right-3 top-2 text-xs text-slate-400">만원</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-4 p-3 bg-blue-50/70 rounded-lg border border-blue-100 text-xs text-slate-600 leading-relaxed">
-                        <i class="fa-solid fa-circle-info text-blue-600 mr-1"></i>
-                        <strong>실시간 반응형 진단:</strong> 가구 유형이나 입력 숫자를 수정하면 즉시 우측의 4대 재무지표 게이지와 현금흐름 차트, PB 맞춤 소견이 갱신됩니다.
-                    </div>
-                </div>
-
-                <!-- 우측 진단 결과 리포트 패널 -->
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
-                        <div class="flex flex-wrap justify-between items-center pb-4 mb-4 border-b border-slate-100 gap-2">
-                            <h3 class="text-base font-bold text-slate-800">
-                                <i class="fa-solid fa-clipboard-check text-blue-600 mr-2"></i>AFPK 4대 핵심 재무지표 진단 리포트
-                            </h3>
-                            <span id="t1-overall-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
-                                종합등급 산출중
-                            </span>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="t1-metrics-grid"></div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between">
-                            <h4 class="text-sm font-bold text-slate-700 mb-3"><i class="fa-solid fa-chart-pie text-blue-600 mr-1.5"></i>월간 현금흐름 배분 구조</h4>
-                            <div class="relative h-48 flex items-center justify-center">
-                                <canvas id="healthCashflowChart"></canvas>
-                            </div>
-                            <div id="t1-cashflow-summary" class="mt-3 text-xs text-center text-slate-500 bg-slate-50 py-2 rounded"></div>
-                        </div>
-
-                        <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5 flex flex-col justify-between">
-                            <div>
-                                <h4 class="text-sm font-bold text-slate-700 mb-3"><i class="fa-solid fa-user-doctor text-blue-600 mr-1.5"></i>AI 프라이빗 뱅커(PB) 맞춤 진단 소견</h4>
-                                <div id="t1-pb-comment" class="text-xs sm:text-sm text-slate-600 space-y-2.5 leading-relaxed"></div>
-                            </div>
-                            <div class="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
-                                <span>순자산: <strong id="t1-networth" class="text-slate-700">-</strong></span>
-                                <span>자기자본비율: <strong id="t1-equity-ratio" class="text-slate-700">-</strong></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- TAB 2: 생애 전환기 소득 절벽 스트레스 테스트 -->
-        <div id="tab-1" class="tab-content">
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm mb-6 flex flex-wrap justify-between items-center gap-4">
-                <div>
-                    <div class="flex items-center space-x-2">
-                        <span class="px-2.5 py-0.5 bg-blue-600 text-white text-xs font-bold rounded">STEP 02 · 위기관리</span>
-                        <h2 class="text-xl font-bold text-slate-900">생애 이벤트 현금흐름 스트레스 테스트 & 4통장 예산 설계</h2>
-                    </div>
-                    <p class="text-sm text-slate-500 mt-1">이직·휴직, 금리 인상, 육아휴직, 은퇴 등 소득/지출 변동 상황에서의 비상자금 버팀력을 테스트하고 맞춤형 통장 쪼개기 예산을 설계합니다.</p>
-                </div>
-                <button onclick="calculateStress()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-6 py-2.5 rounded-lg shadow transition flex items-center text-sm">
-                    <i class="fa-solid fa-bolt mr-2"></i>스트레스 테스트 실행
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- 좌측 변수 설정 -->
-                <div class="lg:col-span-5 bg-white rounded-xl border border-slate-200 shadow-sm p-6 space-y-4">
-                    <h3 class="text-base font-bold text-slate-800 pb-3 border-b border-slate-100">
-                        <i class="fa-solid fa-sliders text-blue-600 mr-2"></i>생애 이벤트 시나리오 및 현금흐름 설정
-                    </h3>
-
-                    <div>
-                        <label class="block text-xs font-bold text-slate-600 mb-1.5">시뮬레이션할 생애 이벤트 선택</label>
-                        <select id="t2-event-type" onchange="applyEventPreset()" class="input-box w-full border border-slate-300 rounded-lg p-2.5 text-sm font-semibold text-slate-800 bg-slate-50">
-                            <option value="custom_event" selected>⚙️ 직접 입력 (내 상황에 맞게 수치 자유 설정)</option>
-                            <option value="job_change">💼 이직 · 구직 · 안식년으로 인한 일시 소득감소</option>
-                            <option value="rate_hike">📈 금리 인상 및 물가 상승으로 인한 고정비 급증</option>
-                            <option value="parental">👶 출산 및 육아휴직 돌입 (맞벌이 → 외벌이 전환)</option>
-                            <option value="retire">🏖️ 정년퇴직 후 연금 개시 전 소득 크레바스 구간</option>
-                        </select>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-3 pt-1">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">현재 월 가계소득</label>
-                            <div class="relative">
-                                <input type="number" id="t2-current-income" value="450" oninput="calculate
+                                        <span class="absolute right-3 top-2 text-xs text-slate-400">
